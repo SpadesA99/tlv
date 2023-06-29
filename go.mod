@@ -1,4 +1,4 @@
-module github.com/free5gc/tlv
+module github.com/SpadesA99/tlv
 
 go 1.17
 
