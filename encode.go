@@ -23,7 +23,7 @@ func makeTLV(tag int, value []byte) []byte {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("makeTLV binary write type error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(len(value))); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(len(value))); err != nil {
 			log.Printf("makeTLV binary write value error: %+v", err)
 		}
 	}
@@ -54,7 +54,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(1)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(1)); err != nil {
 			log.Printf("len(1) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -65,7 +65,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(2)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(2)); err != nil {
 			log.Printf("len(2) write error %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -76,7 +76,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(4)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(4)); err != nil {
 			log.Printf("len(4) write error %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -87,7 +87,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(8)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(8)); err != nil {
 			log.Printf("len(8) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -98,7 +98,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(1)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(1)); err != nil {
 			log.Printf("len(1) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -109,7 +109,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(2)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(2)); err != nil {
 			log.Printf("len(2) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -120,7 +120,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(4)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(4)); err != nil {
 			log.Printf("len(4) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -131,7 +131,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(8)); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(8)); err != nil {
 			log.Printf("len(8) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, v); err != nil {
@@ -143,7 +143,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 		if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 			log.Printf("tag write error: %+v", err)
 		}
-		if err := binary.Write(buf, binary.BigEndian, uint16(len(str))); err != nil {
+		if err := binary.Write(buf, binary.BigEndian, uint32(len(str))); err != nil {
 			log.Printf("len(str) write error: %+v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, []byte(str)); err != nil {
@@ -180,7 +180,7 @@ func buildTLV(tag int, v interface{}) ([]byte, error) {
 			if err := binary.Write(buf, binary.BigEndian, uint16(tag)); err != nil {
 				log.Printf("Binary write error: %+v", err)
 			}
-			if err := binary.Write(buf, binary.BigEndian, uint16(value.Len())); err != nil {
+			if err := binary.Write(buf, binary.BigEndian, uint32(value.Len())); err != nil {
 				log.Printf("Binary write error: %+v", err)
 			}
 			if err := binary.Write(buf, binary.BigEndian, v); err != nil {

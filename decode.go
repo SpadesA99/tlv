@@ -130,7 +130,7 @@ func parseTLV(b []byte) (fragments, error) {
 	buffer := bytes.NewBuffer(b)
 
 	var tag uint16
-	var length uint16
+	var length uint32
 	for {
 		if err := binary.Read(buffer, binary.BigEndian, &tag); err != nil {
 			fmt.Printf("Binary Read error: %v", err)
